@@ -56,7 +56,7 @@ export default function Navbar() {
                 "text-white/90 hover:text-white hover:underline underline-offset-8 decoration-white/40"
               )}
             >
-              గ్యాలరీ
+              Gallery
             </Link>
 
             <Link
@@ -66,7 +66,7 @@ export default function Navbar() {
                 "text-white/90 hover:text-white hover:underline underline-offset-8 decoration-white/40"
               )}
             >
-              వీడియో
+              Video
             </Link>
 
             <Link
@@ -76,7 +76,7 @@ export default function Navbar() {
                 "text-white/90 hover:text-white hover:underline underline-offset-8 decoration-white/40"
               )}
             >
-              బ్లాగ్
+              Blog
             </Link>
 
             {/* Show first 3 categories directly */}
@@ -104,7 +104,7 @@ export default function Navbar() {
                   "text-white/90 hover:text-white hover:underline underline-offset-8 decoration-white/40"
                 )}
               >
-                వర్గాలు
+                Categories
                 <ChevronDown
                   className={cn(
                     "w-4 h-4 transition-transform duration-200",
@@ -153,7 +153,7 @@ export default function Navbar() {
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                గ్యాలరీ
+                Gallery
               </Link>
 
               <Link
@@ -161,7 +161,7 @@ export default function Navbar() {
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                వీడియో
+                Video
               </Link>
 
               <Link
@@ -169,66 +169,31 @@ export default function Navbar() {
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                బ్లాగ్
+                Blog
               </Link>
-
-              {/* Mobile Categories Section */}
-              <div className="border-t border-white/20 pt-3 mt-3">
-                <button
-                  onClick={() =>
-                    setIsCategoriesDropdownOpen(!isCategoriesDropdownOpen)
-                  }
-                  className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 flex items-center justify-between w-full"
-                >
-                  వర్గాలు
-                  <ChevronDown
-                    className={cn(
-                      "w-5 h-5 transition-transform duration-200",
-                      isCategoriesDropdownOpen && "rotate-180"
-                    )}
-                  />
-                </button>
-
-                {isCategoriesDropdownOpen && (
-                  <div className="ml-4 mt-2 space-y-2">
-                    {categories.map((category) => (
-                      <Link
-                        key={category}
-                        href={`/category/${slugifyCategory(category)}`}
-                        className="font-medium text-base text-white/80 hover:text-white transition-colors duration-200 py-1 block"
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          setIsCategoriesDropdownOpen(false);
-                        }}
-                      >
-                        {category}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
             </div>
+
             <div className="border-t border-white/10 pt-3 mt-3 space-y-3">
               <Link
                 href="/about"
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                మన గురించి
+                About
               </Link>
               <Link
                 href="/privacy"
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                గోప్యతా విధానం
+                Privacy Policy
               </Link>
               <Link
                 href="/contact"
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                సంప్రదించండి
+                Contact
               </Link>
             </div>
           </div>
@@ -239,4 +204,4 @@ export default function Navbar() {
 }
 
 // Desktop navigation: Gallery, Video, Blog, first 3 categories directly, rest in dropdown.
-// Mobile: Gallery, Video, Blog in hamburger menu, categories in mobile dropdown.
+// Mobile: Gallery, Video, Blog, About, Privacy, Contact in hamburger menu.
