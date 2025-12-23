@@ -52,6 +52,15 @@ export default function VideoPage() {
                     fill
                     className="object-cover"
                   />
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                    <Link
+                      href={v.fileName}
+                      target="_blank"
+                      className="bg-[var(--primary)] text-white px-4 py-2 rounded-lg font-medium hover:bg-[var(--primary)]/90 transition-colors"
+                    >
+                      ▶️ చూడండి
+                    </Link>
+                  </div>
                 </div>
                 <div className="p-4">
                   <h3 className="text-sm font-semibold text-[var(--foreground)] mb-2 line-clamp-2">
@@ -61,13 +70,6 @@ export default function VideoPage() {
                     <span>
                       {new Date(v.insert_Date).toLocaleDateString("te-IN")}
                     </span>
-                    <Link
-                      href={v.fileName}
-                      target="_blank"
-                      className="text-[var(--primary)] font-medium"
-                    >
-                      చూడండి ↗
-                    </Link>
                   </div>
                 </div>
               </div>

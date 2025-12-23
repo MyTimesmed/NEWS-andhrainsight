@@ -56,7 +56,7 @@ export default function Navbar() {
                 "text-white/90 hover:text-white hover:underline underline-offset-8 decoration-white/40"
               )}
             >
-              Gallery
+              గ్యాలరీ
             </Link>
 
             <Link
@@ -66,7 +66,7 @@ export default function Navbar() {
                 "text-white/90 hover:text-white hover:underline underline-offset-8 decoration-white/40"
               )}
             >
-              Video
+              వీడియో
             </Link>
 
             <Link
@@ -76,7 +76,7 @@ export default function Navbar() {
                 "text-white/90 hover:text-white hover:underline underline-offset-8 decoration-white/40"
               )}
             >
-              Blog
+              బ్లాగ్
             </Link>
 
             {/* Show first 3 categories directly */}
@@ -94,40 +94,42 @@ export default function Navbar() {
             ))}
 
             {/* Categories Dropdown for remaining */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() =>
-                  setIsCategoriesDropdownOpen(!isCategoriesDropdownOpen)
-                }
-                className={cn(
-                  "font-medium text-sm whitespace-nowrap transition-all duration-200 flex items-center gap-1",
-                  "text-white/90 hover:text-white hover:underline underline-offset-8 decoration-white/40"
-                )}
-              >
-                Categories
-                <ChevronDown
+            {categories.length > 3 && (
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() =>
+                    setIsCategoriesDropdownOpen(!isCategoriesDropdownOpen)
+                  }
                   className={cn(
-                    "w-4 h-4 transition-transform duration-200",
-                    isCategoriesDropdownOpen && "rotate-180"
+                    "font-medium text-sm whitespace-nowrap transition-all duration-200 flex items-center gap-1",
+                    "text-white/90 hover:text-white hover:underline underline-offset-8 decoration-white/40"
                   )}
-                />
-              </button>
+                >
+                  వర్గాలు
+                  <ChevronDown
+                    className={cn(
+                      "w-4 h-4 transition-transform duration-200",
+                      isCategoriesDropdownOpen && "rotate-180"
+                    )}
+                  />
+                </button>
 
-              {isCategoriesDropdownOpen && (
-                <div className="absolute top-full mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 min-w-[200px] z-50">
-                  {categories.slice(3).map((category) => (
-                    <Link
-                      key={category}
-                      href={`/category/${slugifyCategory(category)}`}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[var(--primary)] transition-colors duration-200"
-                      onClick={() => setIsCategoriesDropdownOpen(false)}
-                    >
-                      {category}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+                {isCategoriesDropdownOpen && (
+                  <div className="absolute top-full mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 min-w-[200px] z-50">
+                    {categories.slice(3).map((category) => (
+                      <Link
+                        key={category}
+                        href={`/category/${slugifyCategory(category)}`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[var(--primary)] transition-colors duration-200"
+                        onClick={() => setIsCategoriesDropdownOpen(false)}
+                      >
+                        {category}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           <div className="justify-self-end">
@@ -153,7 +155,7 @@ export default function Navbar() {
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Gallery
+                గ్యాలరీ
               </Link>
 
               <Link
@@ -161,7 +163,7 @@ export default function Navbar() {
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Video
+                వీడియో
               </Link>
 
               <Link
@@ -169,7 +171,7 @@ export default function Navbar() {
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Blog
+                బ్లాగ్
               </Link>
             </div>
 
@@ -179,21 +181,21 @@ export default function Navbar() {
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                About
+                మా గురించి
               </Link>
               <Link
                 href="/privacy"
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Privacy Policy
+                గోప్యతా విధానం
               </Link>
               <Link
                 href="/contact"
                 className="font-medium text-lg text-white hover:text-white/90 transition-colors duration-200 py-2 block"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Contact
+                సంప్రదించండి
               </Link>
             </div>
           </div>
